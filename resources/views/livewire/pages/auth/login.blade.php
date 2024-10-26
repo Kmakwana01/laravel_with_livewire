@@ -9,9 +9,6 @@ new #[Layout('components.layouts.guest')] class extends Component
 {
     public LoginForm $form;
 
-    /**
-     * Handle an incoming authentication request.
-     */
     public function login(): void
     {
         $this->validate();
@@ -20,8 +17,9 @@ new #[Layout('components.layouts.guest')] class extends Component
 
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        $this->redirectIntended(default: route('dashboard', absolute: true), navigate: false);
     }
+
 }; ?>
 
 <div>
