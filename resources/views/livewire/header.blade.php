@@ -35,7 +35,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item" href="{{ route('profile') }}" wire:navigate>
+                        <a class="dropdown-item" wire:navigate>
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
@@ -54,8 +54,13 @@
                         <div class="dropdown-divider my-1"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('profile') }}" wire:navigate>
-                            <i class="bx bx-user bx-md me-3"></i><span>My Profile</span>
+                        <a class="dropdown-item">
+                            <i class="bx bx-user bx-md me-3"></i>
+                            <span>
+                                {{-- <x-dropdown-link href="/profile" wire:navigate> --}}
+                                    <a href="{{ route('profile') }}" wire:navigate>Profile</a>
+                                {{-- </x-dropdown-link> --}}
+                            </span>
                         </a>
                     </li>
                     {{-- <li>

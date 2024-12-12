@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>app</title>
 
-    <!-- Fonts -->
+    @yield('styles')
+    @livewireStyles
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
@@ -40,8 +41,6 @@
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
 </head>
 
 <body class="font-sans antialiased">
@@ -52,30 +51,34 @@
             <div class="layout-page">
                 @livewire('header')
                 <div class="content-wrapper">
-                    {{ $slot }}
+                    {{-- {{ $slot }} --}}
+                    @yield('content')
                     @livewire('footer')
                 </div>
             </div>
         </div>
-        <div class="layout-overlay layout-menu-toggle"></div>
     </div>
 
+    @yield('scripts')
     <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
     <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
     <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
 
-    <!-- Vendors JS -->
     <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
-    <!-- Main JS -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
-    <!-- Page JS -->
     <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+        document.addEventListener('livewire:navigate', (event) => {
+            console.log('print')
+        })
+    </script>
     @livewireScripts
 </body>
 

@@ -9,7 +9,7 @@ new #[Layout('components.layouts.guest')] class extends Component
 {
     public LoginForm $form;
 
-    public function login(): void
+    public function login()
     {
         $this->validate();
 
@@ -17,7 +17,7 @@ new #[Layout('components.layouts.guest')] class extends Component
 
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: true), navigate: false);
+        $this->redirect(route('dashboard'));
     }
 
 }; ?>

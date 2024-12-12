@@ -1,0 +1,1 @@
+@livewire('pages.auth.login')
